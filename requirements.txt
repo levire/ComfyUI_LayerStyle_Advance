@@ -21,8 +21,6 @@ mediapipe
 typer_config
 fastapi
 rich
-google-generativeai
-google-genai>=1.5.0
 pillow>=10.1.0
 ultralytics>=8.2.0
 transparent-background
@@ -36,7 +34,5 @@ blind-watermark
 qrcode
 pyzbar
 psd-tools
-zhipuai
-openai
 typer-config
 fastapi
