@@ -32,7 +32,11 @@ for file in files:
     if not file.endswith(".py"):
         continue
     name = os.path.splitext(file)[0]
-    imported_module = importlib.import_module(".py.{}".format(name), __name__)
+    try:
+        imported_module = importlib.import_module(".py.{}".format(name), __name__)
+    except Exception as e:
+        print(f"[LayerStyle_Advance] Skipping {name}.py: {type(e).__name__}: {e}")
+        continue
     try:
         NODE_CLASS_MAPPINGS = {**NODE_CLASS_MAPPINGS, **imported_module.NODE_CLASS_MAPPINGS}
         NODE_DISPLAY_NAME_MAPPINGS = {**NODE_DISPLAY_NAME_MAPPINGS, **imported_module.NODE_DISPLAY_NAME_MAPPINGS}
